@@ -1,0 +1,1 @@
+<!-- Se encarga de enviar a una pantalla en especifico. -->
