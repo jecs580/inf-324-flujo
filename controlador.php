@@ -3,6 +3,8 @@
 $codFlujo=$_GET['codFlujo'];
 $codProceso=$_GET['codProceso'];
 $codProcesoSiguiente=$_GET['codProcesoSiguiente'];
+$archivo=$_GET['archivo'];
+include "controlador.".$archivo;
 if (isset($_GET['anterior'])) {
     if($codProceso=='P1'){
         $codProceso=$codProcesoSiguiente;
@@ -20,7 +22,7 @@ $result = mysqli_query($conn,$sql);
 $fila = mysqli_fetch_array($result);  
 $codProcesoEnvia=$fila['codProceso'];
 $archivoEnvia="motor.php?codFlujo=".$codFlujo."&codProceso=".$codProcesoEnvia;
-// echo $archivoEnvia;
+// echo $archivoEnvia;  // Usamos echo para mostrar los logs que podriamos tener al ejecutar el archivo
 header("Location: ".$archivoEnvia);  //Enviamos una cabecera, donde podemos especificar los distintos
 // valores de la cabecera, en este caso la locacion(ruta despues del nombre de dominio).
 ?>
